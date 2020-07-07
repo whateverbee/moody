@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moody</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,13 +11,16 @@
   </head>
 
   <body>
+  <%= render 'layouts/nav' %>
+  <br/>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
