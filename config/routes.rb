@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'journals#index'
   resources :journals do
     resources :entries, shallow: true
