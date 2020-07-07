@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'home/index'
   devise_for :users
-  root 'journals#index'
+  root 'home#index'
   resources :journals do
     resources :entries, shallow: true
   end
