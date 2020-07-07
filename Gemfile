@@ -25,6 +25,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# encrypt fields with attr_encrypted 
+
+gem 'attr_encrypted', '~> 3.1.0'
+
+# use devise for user auth
+
+gem 'devise'
+
+# front-end styling with bootstrap 
+gem 'bootstrap', '~> 4.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
