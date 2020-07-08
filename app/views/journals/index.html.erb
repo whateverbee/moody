@@ -1,4 +1,5 @@
 <% if @journals.size == 0 %> 
+<h2>Welcome, <%= current_user.name %></h2><br/>
   <%= link_to 'New Journal', new_journal_path %>
 <% else %>
   <% @journals.each do |journal| %>
