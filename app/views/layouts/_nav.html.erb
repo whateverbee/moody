@@ -29,10 +29,13 @@
             User
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Log In</a>
-            <a class="dropdown-item" href="#">Log Out</a>
-            <%= link_to "Register", new_user_registration_path, :class => 'dropdown-item'%>
+            <% if user_signed_in? %>
+              <%= link_to "Settings", edit_user_registration_path, :class => 'dropdown-item' %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'dropdown-item'%>
+            <% else %>
+              <%= link_to "Log in", new_user_session_path, :class => 'dropdown-item' %>
+              <%= link_to "Register", new_user_registration_path, :class => 'dropdown-item'%>
+            <% end %>
           </div>
         </li>
       </ul>
