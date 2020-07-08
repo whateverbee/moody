@@ -4,21 +4,21 @@
 <br/>
 <div class="container">
 
-  <% if @journal.entries.count != 0 %>
-    <% @journal.entries.each do |entry| %>
+  <% if @journal.posts.count != 0 %>
+    <% @journal.posts.each do |post| %>
       <div class="card">
-        <%= entry.title %> || 
-        <%= entry.created_at %> || 
-        <%= entry.rating %> <br/>
+        <%= post.title %> || 
+        <%= post.created_at %> || 
+        <%= post.rating %> <br/>
         <p>
-          <%= entry.content %>
+          <%= post.content %>
         </p>
       </div>
     <% end %>
   <% else %>
     <p><strong> It looks like you haven't written any entries yet! </strong></p>
   <% end %>
-  <%= link_to 'New entry', new_journal_entry_path(@journal), :class => 'btn'%>
+  <%= link_to 'New post', new_journal_post_path(@journal), :class => 'btn'%>
 </div>
 
 

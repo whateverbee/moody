@@ -1,4 +1,4 @@
 class Journal < ApplicationRecord
-  has_many :entries
+  has_many :posts
   belongs_to :user
 end

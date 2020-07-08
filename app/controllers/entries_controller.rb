@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.all.where(journal_id: @journal.id)
   end
 
   # GET /entries/1
@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @entry = Entry.new(journal_id: current_user.journal.id)
   end
 
   # GET /entries/1/edit
@@ -69,6 +69,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:title, :content, :keywords, :rating, :belongs_to)
+      params.require(:entry).permit(:title, :content, :keywords, :rating, :journal_id)
     end
 end
