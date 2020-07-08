@@ -1,7 +1,11 @@
+<div class="container">
 <% if @journals.size == 0 %> 
-<h2>Welcome, <%= current_user.name %></h2><br/>
-  <%= link_to 'New Journal', new_journal_path %>
+<h2>Welcome, <%= current_user.name %>.</h2><br/>
+<p> We're so glad you could make it. To get started, let's
+  <%= link_to 'create your journal', new_journal_path %> 
+  so you have somewhere to start posting!</p> 
 <% else %>
+<h2> Welcome back, <%= current_user.name %></h2>
   <% @journals.each do |journal| %>
   <div class="container">
       <h3><%= journal.title %></h3>

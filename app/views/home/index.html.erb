@@ -1,7 +1,13 @@
 <% unless current_user %>
 
+onboarding content
 
 <% else %>
-
+<h2>Welcome home, <%= current_user.name %>.</h2><br/>
+visualization
+<br/>
+list of posts
+<br/>
+create new post?
 
 <% end %>
