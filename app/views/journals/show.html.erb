@@ -1,26 +1,24 @@
-<h1>
-  <%= @journal.title %>
-</h1>
-<br/>
-<div class="container">
+ <div class="container">
+      <h3><%= @journal.title %></h3>
+      <p><%= link_to 'Edit Journal Title', edit_journal_path(@journal) %> || 
+      <%= link_to 'Destroy', @journal, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
-  <% if @journal.posts.count != 0 %>
-    <% @journal.posts.each do |post| %>
-      <div class="card">
-        <%= post.title %> || 
-        <%= post.created_at %> || 
-        <%= post.rating %> <br/>
-        <p>
-          <%= post.content %>
-        </p>
-      </div>
-    <% end %>
-  <% else %>
-    <p><strong> It looks like you haven't written any entries yet! </strong></p>
-  <% end %>
-  <%= link_to 'New post', new_journal_post_path(@journal), :class => 'btn'%>
-</div>
+      <% if @journal.posts.count != 0 %>
+        <% @journal.posts.each do |post| %>
+          <div class="card">
+            <%= post.title %> || 
+            <%= post.created_at %> || 
+            <%= post.rating %> <br/>
+            <p>
+              <%= post.content %>
+            </p>
+          </div>
+        <% end %>
+      <% else %>
+        <p><strong> It looks like you haven't written any entries yet! </strong></p>
+      <% end %>
+      <%= link_to 'New post', new_journal_post_path(@journal), :class => 'btn'%>
+    </div>
 
 
-<%= link_to 'Edit', edit_journal_path(@journal) %> |
-<%= link_to 'Back', journals_path %>
+  <br>

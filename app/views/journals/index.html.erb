@@ -1,27 +1,29 @@
-<h1>Journal</h1>
-
 <% if @journals.size == 0 %> 
   <%= link_to 'New Journal', new_journal_path %>
 <% else %>
+  <% @journals.each do |journal| %>
+  <div class="container">
+      <h3><%= journal.title %></h3>
+      <p><%= link_to 'Edit Journal Title', edit_journal_path(journal) %> || 
+      <%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @journals.each do |journal| %>
-        <tr>
-          <td><%= journal.title %></td>
-          <td><%= link_to 'Edit', edit_journal_path(journal) %></td>
-          <td><%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+      <% if journal.posts.count != 0 %>
+        <% journal.posts.each do |post| %>
+          <div class="card">
+            <%= link_to post.title, journal_post_path(journal, post) %> || 
+            <%= post.created_at %> || 
+            Rating: <%= post.rating %> <br/>
+            <p>
+              <%= post.content %>
+            </p>
+          </div>
+        <% end %>
+      <% else %>
+        <p><strong> It looks like you haven't written any entries yet! </strong></p>
       <% end %>
-    </tbody>
-  </table>
+      <%= link_to 'New post', new_journal_post_path(journal), :class => 'btn'%>
+    </div>
+  <% end %>
 
   <br>
 <% end %>

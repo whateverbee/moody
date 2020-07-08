@@ -1,10 +1,11 @@
 class JournalsController < ApplicationController
   before_action :set_journal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /journals
   # GET /journals.json
   def index
-    @journals = Journal.all
+    @journals = Journal.all.where(user_id: current_user.id)
   end
 
   # GET /journals/1
@@ -69,6 +70,6 @@ class JournalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def journal_params
-      params.require(:journal).permit(:title, :string)
+      params.require(:journal).permit(:title, :string, :user_id)
     end
 end
