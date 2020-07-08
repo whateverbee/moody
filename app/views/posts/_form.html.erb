@@ -19,11 +19,32 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <em>(1-5)</em>
+  <div class="field rating">
+    <%= form.label :rating, "How would you rate your day?" %>
     <br/>
-    <%= form.number_field :rating %>
+    <table>
+      <thead>
+        <tr class="rating-headings">
+          <th><%= form.label :rating, '1', value: '1' %></th>
+          <th><%= form.label :rating, '2', value: '2' %></th>
+          <th><%= form.label :rating, '3', value: '3' %></th>
+          <th><%= form.label :rating, '4', value: '4' %></th>
+          <th><%= form.label :rating, '5', value: '5' %></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td><%= form.radio_button :rating, '1' %></td>
+          <td><%= form.radio_button :rating, '2' %></td>
+          <td><%= form.radio_button :rating, '3' %></td>
+          <td><%= form.radio_button :rating, '4' %></td>
+          <td><%= form.radio_button :rating, '5' %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    
   </div>
 
   <div class="field">

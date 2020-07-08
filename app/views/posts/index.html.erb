@@ -16,7 +16,7 @@
   <tbody>
     <% current_user.journal.posts.each do |post| %>
       <tr>
-        <td><%= link_to post.title, post %></td></td>
+        <td><%= link_to post.title, post %></td>
         <td>Rating: <%= post.rating %></td>
         <td><%= post.content %></td>
         <td><%= post.keywords %></td>
