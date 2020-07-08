@@ -1,0 +1,26 @@
+<h1>
+  <%= @journal.title %>
+</h1>
+<br/>
+<div class="container">
+
+  <% if @journal.entries.count != 0 %>
+    <% @journal.entries.each do |entry| %>
+      <div class="card">
+        <%= entry.title %> || 
+        <%= entry.created_at %> || 
+        <%= entry.rating %> <br/>
+        <p>
+          <%= entry.content %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <p><strong> It looks like you haven't written any entries yet! </strong></p>
+  <% end %>
+  <%= link_to 'New entry', new_journal_entry_path(@journal), :class => 'btn'%>
+</div>
+
+
+<%= link_to 'Edit', edit_journal_path(@journal) %> |
+<%= link_to 'Back', journals_path %>
