@@ -7,8 +7,8 @@
 <h2>Welcome home, <%= current_user.name %>.</h2><br/>
 
 <br/>
-<h3> Most recent mood ratings </h3>
 <% if current_user.journal %>
+<h3> Most recent mood ratings </h3>
 <%= line_chart current_user.journal.posts
                .group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now)
                .average(:rating),
@@ -16,10 +16,15 @@
                xtitle: "Date",
                ytitle: "Rating",
                max: 5 %>
-<% end %>
 <br/>
 
 <h3> Recent Posts </h3>
 <%= render 'shared/post_cards' %>
+<br/>
+<% else %>
+
+<p> We're so glad you could make it. To get started, let's
+  <%= link_to 'create your journal', new_journal_path %> 
+  so you have somewhere to start posting!</p> 
 <br/>
 <% end %>
