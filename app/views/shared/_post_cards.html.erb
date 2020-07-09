@@ -1,0 +1,21 @@
+<div class="row">
+  <% current_user.journal.posts.reverse_order.each do |post| %>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">
+            <%= link_to post.title, journal_post_path(current_user.journal, post), :class => 'text-dark' %>
+          </h5>
+          <br/>
+          <%= post.created_at %> || 
+          Rating: <%= post.rating %> <br/>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <%= post.content %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

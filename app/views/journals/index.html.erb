@@ -13,27 +13,7 @@
       <%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
       <% if journal.posts.count != 0 %>
-        <div class="row">
-        <% journal.posts.reverse_order.each do |post| %>
-            <div class="col-sm-4">
-              <div class="card">
-                <div class="card-header">
-                  <h5 class="card-title">
-                    <%= link_to post.title, journal_post_path(journal, post), :class => 'text-dark' %>
-                  </h5>
-                  <br/>
-                  <%= post.created_at %> || 
-                  Rating: <%= post.rating %> <br/>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <%= post.content %>
-                  </p>
-                </div>
-              </div>
-            </div>
-        <% end %>
-        </div>
+        <%= render 'shared/post_cards' %>
       <% else %>
         <p><strong> It looks like you haven't written any entries yet! </strong></p>
       <% end %>

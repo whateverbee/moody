@@ -4,9 +4,18 @@ onboarding content
 
 <% else %>
 <h2>Welcome home, <%= current_user.name %>.</h2><br/>
-visualization
+
 <br/>
-list of posts
+<h3> Most recent mood ratings </h3>
+<% if current_user.journal %>
+<%= line_chart current_user.journal.posts
+               .group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now)
+               .average(:rating) %>
+<% end %>
+<br/>
+
+<h3> Recent Posts </h3>
+<%= render 'shared/post_cards' %>
 <br/>
 create new post?
 

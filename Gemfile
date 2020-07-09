@@ -36,6 +36,15 @@ gem 'devise'
 # front-end styling with bootstrap 
 gem 'bootstrap', '~> 4.0'
 
+# add visualisations with chartkick
+
+gem 'chartkick'
+gem 'groupdate'
+
+# paginate 
+
+gem 'will_paginate', '~> 3.1.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
