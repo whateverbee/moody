@@ -1,33 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
+<br/>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>Content</th>
-      <th>Keywords</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.journal.posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, post %></td>
-        <td>Rating: <%= post.rating %></td>
-        <td><%= post.content %></td>
-        <td><%= post.keywords %></td>
-        <td><%= post.created_at %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'shared/post_cards'%>
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>

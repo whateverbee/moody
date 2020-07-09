@@ -12,10 +12,14 @@
         </div>
         <div class="card-body">
           <p class="card-text">
-            <%= post.content %>
+            <%= post.content.truncate(240) %>
           </p>
+            <%= link_to 'Edit post', edit_post_path(post), :class => 'card-link' %>
+            <%= link_to 'Delete post', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'card-link' %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+<%= link_to 'New Post', new_post_path, :class => 'btn btn-primary text-light' %>

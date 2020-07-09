@@ -16,9 +16,9 @@
         <%= render 'shared/post_cards' %>
       <% else %>
         <p><strong> It looks like you haven't written any entries yet! </strong></p>
+        <%= link_to 'New post', new_journal_post_path(journal), :class => 'btn btn-primary text-light' %>
       <% end %>
       <br/>
-      <%= link_to 'New post', new_journal_post_path(journal), :class => 'btn btn-primary text-light' %>
     </div>
   <% end %>
 

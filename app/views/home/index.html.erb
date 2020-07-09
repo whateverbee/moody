@@ -1,6 +1,7 @@
 <% unless current_user %>
-
-onboarding content
+<h2> Welcome to moody.</h2>
+<div>We're a free journalling app that lets you track trends in your mood. </div>
+<div>Why not take us for a spin? To get started, <%= link_to "sign up", new_user_registration_path%>!</div>
 
 <% else %>
 <h2>Welcome home, <%= current_user.name %>.</h2><br/>
@@ -10,13 +11,15 @@ onboarding content
 <% if current_user.journal %>
 <%= line_chart current_user.journal.posts
                .group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now)
-               .average(:rating) %>
+               .average(:rating),
+               messages: {empty: "No ratings"},
+               xtitle: "Date",
+               ytitle: "Rating",
+               max: 5 %>
 <% end %>
 <br/>
 
 <h3> Recent Posts </h3>
 <%= render 'shared/post_cards' %>
 <br/>
-create new post?
-
 <% end %>

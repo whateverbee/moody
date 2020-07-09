@@ -4,15 +4,7 @@
       <%= link_to 'Destroy', @journal, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
       <% if @journal.posts.count != 0 %>
-        <% @journal.posts.each do |post| %>
-          <div class="card">
-            <%= post.title %> || 
-            <%= post.created_at %> || 
-            <%= post.rating %> <br/>
-            <p>
-              <%= post.content %>
-            </p>
-          </div>
+        <%= render 'shared/post_cards' %>
         <% end %>
       <% else %>
         <p><strong> It looks like you haven't written any entries yet! </strong></p>
