@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Moody, a mood-tracking journalling app. 
 
-Things you may want to cover:
+Moody is a mood-tracking journalling app, running on Heroku at moody.alidacodes.ca. 
+Moody lets you track your moods and privately journal so you can spot trends in what makes you happy, and learn what makes for either a good or bad day. 
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
