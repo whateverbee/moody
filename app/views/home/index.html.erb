@@ -10,7 +10,7 @@
 <% if current_user.journal %>
 <h3> Most recent mood ratings </h3>
 <%= line_chart current_user.journal.posts
-               .group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now)
+               .group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now, time_zone: "Eastern Time (US & Canada)")
                .average(:rating),
                messages: {empty: "No ratings"},
                xtitle: "Date",
